@@ -8,6 +8,8 @@
 \usepackage{amssymb,amsthm,amsmath,mathtools}
 \usepackage{listings}
 
+\usepackage{tikz-cd}
+
 \usepackage{tocbibind}
 
 \usepackage{thmtools}
@@ -65,6 +67,23 @@
 строятся несколько таких конструкций. Определение содержится в этой секции,
 кроме него в ней даётся высокоуровневый обзор того, о чём будут следующие
 секции.
+
+\begin{figure}[h]
+\[
+\shorthandoff{"}
+\begin{tikzcd}
+x \arrow[rr, "f"] \arrow[rd, "h"] & ~ & f(x) \arrow[ld, dashrightarrow, "h \circ f^{-1}"] \\
+~ & h(x) & ~
+\end{tikzcd}
+% \begin{tikzcd}
+% A \arrow[r, "\phi"] \arrow[d, red] & B \arrow[d, "\psi" red] \\
+% C \arrow[r, red, "\eta" blue]      & D
+% \end{tikzcd}
+\shorthandon{"}
+\]
+\caption{Схема отображений функции $f$ и её трудного бита $h$}
+\end{figure}
+
 
 Символом $C(f)$ обозначим размер минимальной схемы с гейтами из $\{0, 1\}^2 \to
 \{0, 1\}$, вычисляющей функцию $f : \{0, 1\}^n \to \{0, 1\}^m$. А символом
