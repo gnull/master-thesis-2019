@@ -1,4 +1,12 @@
-@book{hiltgen,
+@inproceedings{hiltgen1998,
+  author = {Hiltgen, Alain},
+  year = {1998},
+  month = {05},
+  pages = {319-333},
+  title = {Towards a Better Understanding of One-Wayness: Facing Linear Permutations.},
+  doi = {10.1007/BFb0054136}
+}
+@book{hiltgen1994,
   title={Cryptographically relevant contributions to combinational complexity theory},
   author={Hiltgen, A.P.L.},
   isbn={9783891917459},
@@ -8,7 +16,7 @@
   year={1994},
   publisher={Hartung-Gorre Verlag}
 }
-@InProceedings{hiltgen_article,
+@InProceedings{hiltgen1993,
   author="Hiltgen, Alain P. L.",
   editor="Seberry, Jennifer
   and Zheng, Yuliang",
@@ -21,7 +29,7 @@
   abstract="The unrestricted circuit complexity C(.) over the basis of all logic 2-input/1-output gates is considered. It is proved that certain explicitly defined families of permutations {\{}fn{\}} are feebly-one-way of order 2, i.e., the functions fn satisfy the property that, for increasing n, C(fn−1) approaches 2 {\textperiodcentered} C(fn) while C(fn) tends to infinity. Both these functions and their corresponding complexities are derived by a method that exploits certain graphs called (n−1,s)-stars.",
   isbn="978-3-540-47976-5"
 }
-@article{hirsch,
+@article{hirsch_milanich_nikolenko,
   author = {A. Hirsch, E and Melanich, O and Nikolenko, Sergey},
   year = {2012},
   month = {01},
@@ -48,20 +56,67 @@
   journal = {[No source information available]},
   doi = {10.1145/73007.73010}
 }
-@Article{hirsch_milanich_nikolenko,
-  author="Hirsch, E. A.
-  and Melanich, O.
-  and Nikolenko, S. I.",
-  title="Feebly secure cryptographic primitives",
-  journal="Journal of Mathematical Sciences",
-  year="2013",
-  month="Jan",
+@Article{complete_owf,
+  author="Levin, Leonid A.",
+  title="One way functions and pseudorandom generators",
+  journal="Combinatorica",
+  year="1987",
+  month="Dec",
   day="01",
-  volume="188",
-  number="1",
-  pages="17--34",
-  abstract="In 1992, A. Hiltgen provided first construction of provably (slightly) secure cryptographic primitives, namely, feebly one-way functions. These functions are provably harder to invert than to compute, but the complexity (viewed as the circuit complexity over circuits with arbitrary binary gates) is amplified only by a constant factor (in Hiltgen's works, the factor approaches 2).",
-  issn="1573-8795",
-  doi="10.1007/s10958-012-1103-x",
-  url="https://doi.org/10.1007/s10958-012-1103-x"
+  volume="7",
+  number="4",
+  pages="357--363",
+  abstract="Pseudorandom generators transform in polynomial time a short random ``seed'' into a long ``pseudorandom'' string. This string cannot be random in the classical sense of [6], but testing that requires an unrealistic amount of time (say, exhaustive search for the seed). Such pseudorandom generators were first discovered in [2] assuming that the function (axmodb) is one-way, i.e., easy to compute, but hard to invert on a noticeable fraction of instances. In [12] this assumption was generalized to the existence of any one-way permutation. The permutation requirement is sufficient but still very strong. It is unlikely to be proven necessary, unless something crucial, like P=NP, is discovered. Below, among other observations, a weaker assumption about one-way functions is proposed, which is not only sufficient, but also necessary for the existence of pseudorandom generators.",
+  issn="1439-6912",
+  doi="10.1007/BF02579323",
+  url="https://doi.org/10.1007/BF02579323"
+}
+@article{complete_owf2,
+  author    = {Leonid A. Levin},
+  title     = {The Tale of One-Way Functions},
+  journal   = {Probl. Inf. Transm.},
+  volume    = {39},
+  number    = {1},
+  pages     = {92--103},
+  year      = {2003},
+  url       = {https://doi.org/10.1023/A\%3A1023634616182},
+  doi       = {10.1023/A\%3A1023634616182},
+  timestamp = {Fri, 26 May 2017 22:54:52 +0200},
+  biburl    = {https://dblp.org/rec/bib/journals/poit/Levin03},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+@inproceedings{complete_pkcs,
+  author    = {Danny Harnik and
+               Joe Kilian and
+               Moni Naor and
+               Omer Reingold and
+               Alon Rosen},
+  title     = {On Robust Combiners for Oblivious Transfer and Other Primitives},
+  booktitle = {Advances in Cryptology - {EUROCRYPT} 2005, 24th Annual International
+               Conference on the Theory and Applications of Cryptographic Techniques,
+               Aarhus, Denmark, May 22-26, 2005, Proceedings},
+  pages     = {96--113},
+  year      = {2005},
+  crossref  = {DBLP:conf/eurocrypt/2005},
+  url       = {https://doi.org/10.1007/11426639\_6},
+  doi       = {10.1007/11426639\_6},
+  timestamp = {Wed, 14 Nov 2018 10:54:57 +0100},
+  biburl    = {https://dblp.org/rec/bib/conf/eurocrypt/HarnikKNRR05},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+@article{complete_pkcs2,
+  author    = {Dima Grigoriev and
+               Edward A. Hirsch and
+               Konstantin Pervyshev},
+  title     = {A Complete Public-Key Cryptosystem},
+  journal   = {Groups Complexity Cryptology},
+  volume    = {1},
+  number    = {1},
+  pages     = {1--12},
+  year      = {2009},
+  url       = {https://doi.org/10.1515/GCC.2009.1},
+  doi       = {10.1515/GCC.2009.1},
+  timestamp = {Sat, 27 May 2017 14:24:43 +0200},
+  biburl    = {https://dblp.org/rec/bib/journals/gcc/GrigorievHP09},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
