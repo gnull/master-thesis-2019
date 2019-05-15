@@ -971,6 +971,27 @@ C_{7/8}(g_{n, s}) \geq 3n - \ceil*{\frac {n - 1} s} - 5.
 \label{corr_main}
 \end{corollary}
 
+% Рисунок \ref{fig_big_picture} иллюстриует общую картину всех рассмотренных в
+% этой работе и работах Хильтгена оценок сложности функций. Все оценки, кроме $C$
+% 
+% \begin{figure}[h]
+% \[
+% \shorthandoff{"}
+% \begin{tikzcd}
+% x \arrow[rr, bend left, "n + s + e_s - 2" above] \arrow[rdd, bend right, "2n - 1" below left]
+% & ~ &
+% f_{n, s}(x)
+%   \arrow[ldd, bend left, dashrightarrow, "\geq 3n - \ceil*{\frac {n - 1} s} - 5"]
+%   \arrow[ll, bend left, dashrightarrow, "\floor*{\frac {2s - 1} s (n - 1)}" below] \\
+% ~ &  ~   & ~ \\
+% ~ & h_n(x) & ~
+% \end{tikzcd}
+% \shorthandon{"}
+% \]
+% \caption{Схема всех оценок сложности, рассмотренных в этой работе}
+% \label{fig_big_picture}
+% \end{figure}
+
 Теперь, выбирая конкретные значения для $s$, построим несколько односторонних
 функций с трудным битом (в слабом смысле). Будем пользоваться для этого теоремой
 \ref{thm_hiltgen} и предыдущим следствием \ref{corr_main}. Помним, что $C(h_n) =
