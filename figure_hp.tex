@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+
+\usetikzlibrary{cd}
+
+\begin{document}
+\begin{tikzcd}
+x \arrow[rr, bend left, "f"] \arrow[rd, bend right, "h"] & ~ & f(x) \arrow[ld, bend left, dashrightarrow, "h \circ f^{-1}"] \\
+~ & h(x) & ~
+\end{tikzcd}
+\end{document}

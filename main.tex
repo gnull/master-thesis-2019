@@ -40,13 +40,8 @@
 пользователя, которая должна быть простой.
 
 \begin{figure}[h]
-\[
-\shorthandoff{"}
-\begin{tikzcd}
-x \arrow[rr, bend left, "f"] & \hspace{1cm} & f(x) \arrow[ll, bend left, dashrightarrow, "f^{-1}"] \\
-\end{tikzcd}
-\shorthandon{"}
-\]
+\centering
+\includegraphics{figure_owf}
 \caption{Схема отображений односторонней функции $f$}
 \label{fig_owf}
 \end{figure}
@@ -122,14 +117,8 @@ $h(x)$ по заданному $x$ легко, но вычислить $h(x)$ п
 пунктирной.
 
 \begin{figure}[h]
-\[
-\shorthandoff{"}
-\begin{tikzcd}
-x \arrow[rr, bend left, "f"] \arrow[rd, bend right, "h"] & ~ & f(x) \arrow[ld, bend left, dashrightarrow, "h \circ f^{-1}"] \\
-~ & h(x) & ~
-\end{tikzcd}
-\shorthandon{"}
-\]
+\centering
+\includegraphics{figure_hp}
 \caption{Схема отображений функции $f$ и её трудного бита $h$}
 \label{fig_hp}
 \end{figure}
@@ -911,7 +900,6 @@ C_{7/8}(g_{n, s}) \geq 3n - \ceil*{\frac {n - 1} s} - 5.
 % 
 % \begin{figure}[h]
 % \[
-% \shorthandoff{"}
 % \begin{tikzcd}
 % x \arrow[rr, bend left, "n + s + e_s - 2" above] \arrow[rdd, bend right, "2n - 1" below left]
 % & ~ &
@@ -921,7 +909,6 @@ C_{7/8}(g_{n, s}) \geq 3n - \ceil*{\frac {n - 1} s} - 5.
 % ~ &  ~   & ~ \\
 % ~ & h_n(x) & ~
 % \end{tikzcd}
-% \shorthandon{"}
 % \]
 % \caption{Схема всех оценок сложности, рассмотренных в этой работе}
 % \label{fig_big_picture}
