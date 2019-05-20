@@ -1,4 +1,4 @@
-main.pdf: main.tex main.bib title.tex title.pdf
+main.pdf: main.tex main.bib title.tex preamble.tex title.pdf
 	latexmk -pdf main.tex
 
 title.pdf: %.pdf : %.odt

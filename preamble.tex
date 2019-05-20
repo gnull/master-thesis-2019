@@ -1,0 +1,73 @@
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{url, hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb,amsthm,amsmath,mathtools}
+\usepackage{listings}
+
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{savesym}
+
+\savesymbol{C}
+\savesymbol{G}
+\usepackage{complexity}
+\restoresymbol{TXF}{C}
+\restoresymbol{TXF}{G}
+
+\usepackage{tikz-cd}
+
+\usepackage{tocbibind}
+
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+\usepackage{geometry}
+
+% \geometry{
+%    a4paper,
+%    left=30mm,
+%    right=15mm,
+%    top=20mm,
+%    bottom=20mm,
+% }
+
+\usepackage{pdfpages}
+
+\newtheorem{theorem}{Теорема}
+\newtheorem{exercise}{Упражнение}
+\newtheorem{corollary}{Следствие}
+\newtheorem{proposition}{Предложение}
+\newtheorem{lemma}{Лемма}
+\theoremstyle{plain}
+\newtheorem{definition}{Определение}
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}
+
+% \renewcommand{\thesection}{}
+% \renewcommand{\thesubsection}{}
+
+\newcommand\rowm{\ensuremath{\operatorname{row}^-}}
+\newcommand\colm{\ensuremath{\operatorname{col}^-}}
+\newcommand\F{\ensuremath{{\mathbb F}_2}}
+
+\DeclareMathOperator{\lcm}{LCM}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\val}{val}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ang{\langle}{\rangle}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+
+\DeclareRobustCommand{\divby}{%
+  \mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
+}
+
+\setcounter{tocdepth}{1}
+
