@@ -3,3 +3,8 @@ main.pdf: main.tex main.bib title.tex preamble.tex figure_hp.pdf figure_owf.pdf
 
 figure_hp.pdf figure_owf.pdf: %.pdf : %.tex preamble-figures.tex
 	latexmk -pdflua $<
+
+PHONY: clean
+
+clean:
+	latexmk -C
