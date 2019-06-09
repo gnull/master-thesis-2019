@@ -1,0 +1,223 @@
+\documentclass[mathserif,serif]{beamer} % Add handout here to disable animations
+
+\usepackage{fontspec} % loaded by polyglossia, but included here for transparency
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setkeys{russian}{babelshorthands=true}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{CMU Serif}
+\newfontfamily\cyrillicfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{FreeMono}
+
+\usepackage{savesym}
+\savesymbol{C}
+\savesymbol{G}
+\usepackage{complexity}
+\restoresymbol{TXF}{C}
+\restoresymbol{TXF}{G}
+
+\usepackage{amssymb,amsthm,amsmath,mathtools,thmtools,thm-restate}
+
+\newtheorem{thm}{Теорема}
+\newtheorem{exercise}{Упражнение}
+\newtheorem{corr}{Следствие}
+\newtheorem{lemm}{Лемма}
+\theoremstyle{definition}
+\newtheorem{defn}{Определение}
+\newtheorem{construction}{Конструкция}
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}
+
+\newcommand\F{\ensuremath{{\mathbb F}_2}}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+
+\title{Доказуемо надёжные в слабом смысле трудные биты}
+\subtitle{Магистерская диссертация}
+\author{Выполнил: Олейников Иван Викторович \\ Научный руководитель: Гирш Эдуард Алексеевич}
+\date{Санкт-Петербург, 2019}
+\subject{Computer Science}
+
+\begin{document}
+
+\begin{frame}
+\vspace{2cm}
+\begin{center}
+  \textbf{Доказуемо надёжные в слабом смысле трудные биты}
+  \\
+  Магистерская диссертация
+  \\[1em]
+  {
+    Олейников Иван Викторович
+  }
+  \\[2em]
+\end{center}
+
+\hfill
+\begin{minipage}{0.45\textwidth}
+\textbf{Научный руководитель:} \\
+доктор физико"=математических наук, доцент \\
+Гирш Эдуард Алексеевич
+\end{minipage}
+
+\begin{center}
+\mbox{}
+\vfill
+\small Санкт-Петербург, 2019
+\end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Мотивация для слабых определений надёжности}
+  Мы не умеем доказывать надёжность (почти) ни для одного криптографического
+  примитива.
+  \begin{itemize}
+  \item Это трудно, ведь если доказать существование, скажем, односторонней
+  функции то из этого последует $\P \neq \NP$.
+  \item Обычно такая надёжность требует, чтобы задачи честных пользователей
+  решались за полиномиальное число операций, а задача противника (взлом) "---
+  нет.
+  \end{itemize}
+  \pause
+  Насколько нужно ослабить требования надёжности, чтобы получилось что-то, что
+  мы умеем доказывать?
+  \begin{itemize}
+  \item Надёжность в слабом смысле порядка $k$ требует, чтобы для взлома
+  требовалось в $k$ раз больше операций, чем для решения задачи честного
+  пользователя.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Существующие конструкции}
+  Существующие работы по надёжным в слабом смысле конструкциям:
+  \begin{itemize}
+  \item Односторонние функции "--- Хильген 1993 г.
+  \item Функции с секретом (\begin{english}trapdoor function\end{english}) "---
+  Гирш, Николенко, Меланич, Давыдов 2009-2012 г.
+  \end{itemize}
+  \pause
+  В этой работе строится:
+  \begin{itemize}
+  \item Функция с трудным битом.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Функция и её трудный бит}
+  {
+    \centering
+    \includegraphics[width=0.5\textwidth]{../figure_hp}
+    \[
+    \begin{aligned}
+    f : \{0, 1\}^n \to \{0, 1\}^n
+    & \quad &
+    h : \{0, 1\}^n \to \{0, 1\}
+    \end{aligned}
+    \]
+  }
+  \begin{defn}
+  Предикат $h$ является трудным битом для перестановки $f$ порядка $k$ с
+  вероятностью $\alpha$, если
+  \[
+  \lim_{l \to \infty} \sup_{n > l} \frac {C_\alpha(h_n \circ f_n^{-1})} {\max \{ C(h_n), C(f_n) \}} = k.
+  \]
+  \end{defn}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Обзор конструкции}
+  Хильтген построил линейную перестановку $\lambda_{n, s} : \F^n \to \F^n$ и
+  доказал точные оценки на сложности $C(\lambda_{n, s})$ и $C(\lambda_{n, s}^{-1})$.
+  \[
+  \lambda_{n, s}(x) = \Lambda_{n, s} x
+  \]
+  \pause
+  Зададим
+  \[
+  f_{n, s}(x, y) = (x, \lambda_{n, s}(y)) = (x, \Lambda_{n, s} y).
+  \]
+  \pause
+  Трудным битом для $f_{n ,s}$ будет скалярное произведение:
+  \[
+  h_n (x, y) = x^\top y.
+  \]
+\end{frame}
+
+\begin{frame}
+\frametitle{План доказательства}
+\fbox{
+  \begin{minipage}{\textwidth}
+    Напоминание с прошлого слайда:
+    \[
+    \begin{aligned}
+    f_{n, s}(x, y) &= (x, \lambda_{n, s}(y)) = (x, \Lambda_{n, s} y) \\
+    h_n (x, y) &= x^\top y. \\
+    \end{aligned}
+    \]
+  \end{minipage}
+}
+\pause
+\\[1em]
+Чтобы оценить снизу
+\[
+  \lim_{l \to \infty} \sup_{n > l} \frac {C_\alpha(h_n \circ f_n^{-1})} {\max \{ C(h_n), C(f_n) \}},
+\]
+нужны оценки
+\begin{tabular}{l | l}
+сверху на $C(h_n)$                      & \onslide<3->{очевидно $C(h_n) = 2n - 1$} \\
+сверху на $C(f_{n, s})$                 & \onslide<4->{очевидно $C(f_{n, s}) = C(\lambda_{n, s})$} \\
+снизу на $C_\alpha(h_n \circ f_{n, s}^{-1})$ & \onslide<5->{доказывается в этой работе.} \\
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Нижняя оценка}
+\fbox{
+  \begin{minipage}{\textwidth}
+    Напоминание с прошлого слайда:
+    \[
+    \begin{aligned}
+    f_{n, s}(x, y) &= (x, \lambda_{n, s}(y)) = (x, \Lambda_{n, s} y) \\
+    h_n (x, y) &= x^\top y. \\
+    \end{aligned}
+    \]
+  \end{minipage}
+}
+\pause
+\\[1em]
+Функция $h_n \circ f_{n, s}^{-1}$ является билинейной формой:
+\[
+(h_n \circ f_{n, s}^{-1})(x, y) = h_n(x, \Lambda_{n, s}^{-1}y) = x^\top \Lambda_{n, s}^{-1} y.
+\]
+\pause
+\begin{thm}
+\[
+C_{7/8}(h_n \circ f_{n, s}^{-1}) \geq 3n - \ceil{n / s} - 5.
+\]
+\end{thm}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Заключение}
+  \begin{construction}[$s = 2$.]
+  Получается трудный бит порядка $(3 - 1/2) / 2 = (1 + 1/4)$ с вероятностью $7/8$.
+  \[
+  C_{7/8}(g_{n, s}) \geq (3 - \frac 1 2)n - 6.
+  \]
+  При этом обратить $f_{n, s}$ в $3/2$ раз труднее, чем вычислить.
+  \end{construction}
+  \pause
+  \begin{construction}[$s = \sqrt{n}$.]
+  Получается трудный бит порядка $1 + 1/2$ с вероятностью $7/8$.
+  \[
+  C_{7/8}(g_{n, s}) \geq 3n - \sqrt{n} - 6.
+  \]
+  Функцию $f_{n, s}$ обратить в $2$ раза труднее, чем вычислить.
+  \end{construction}
+\end{frame}
+
+\end{document}
