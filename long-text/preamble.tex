@@ -1,0 +1,91 @@
+\usepackage{fontspec} % loaded by polyglossia, but included here for transparency
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setkeys{russian}{babelshorthands=true}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{CMU Serif}
+\newfontfamily\cyrillicfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{FreeMono}
+
+\usepackage{url, hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb,amsthm,amsmath,mathtools,thmtools,thm-restate}
+\usepackage{listings}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{savesym}
+\savesymbol{C}
+\savesymbol{G}
+\usepackage{complexity}
+\restoresymbol{TXF}{C}
+\restoresymbol{TXF}{G}
+
+\usepackage{tikz}
+
+\usepackage{tocbibind}
+
+\usepackage{geometry}
+
+\geometry{
+  a4paper,
+  left=30mm,
+  right=15mm,
+  top=20mm,
+  bottom=20mm,
+  includefoot,
+}
+
+\usepackage{pdfpages}
+
+\newtheorem{theorem}{Теорема}
+\newtheorem{exercise}{Упражнение}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem{construction}{Конструкция}
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}
+
+\newcommand\rowm{\ensuremath{\operatorname{row}^-}}
+\newcommand\colm{\ensuremath{\operatorname{col}^-}}
+\newcommand\F{\ensuremath{{\mathbb F}_2}}
+
+\DeclareMathOperator{\lcm}{LCM}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\val}{val}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ang{\langle}{\rangle}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+
+\DeclareRobustCommand{\divby}{%
+  \mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
+}
+
+\setcounter{tocdepth}{1}
+
+\hypersetup{
+    colorlinks, urlcolor={black}, % Все ссылки черного цвета, кликабельные
+    linkcolor={black}, citecolor={black}, filecolor={black},
+    pdfauthor={Иван Олейников},
+    pdftitle={Доказуемо надёжные в слабом смысле трудные биты}
+}
+
+% \renewcommand{\baselinestretch}{1.4} % Полуторный межстрочный интервал
+\parindent 1.25cm % Абзацный отступ
+
+% \setlist[enumerate,itemize]{leftmargin=12.7mm}
+
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
+\captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
+\captionsetup[table]{justification=justified, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
+\addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
