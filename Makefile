@@ -1,9 +1,9 @@
-all: slides/main.pdf main.pdf
+all: slides/main.pdf short-text/main.pdf
 
 slides/main.pdf: slides/main.tex standalone/figure_hp.pdf
 	cd slides && latexmk -pdflua $(shell "basename $<")
 
-main.pdf: short-text/main.tex main.bib title.tex short-text/preamble.tex standalone/figure_hp.pdf standalone/figure_owf.pdf
+short-text/main.pdf: short-text/main.tex main.bib title.tex short-text/preamble.tex standalone/figure_hp.pdf standalone/figure_owf.pdf
 	cd short-text/ && latexmk -pdflua main.tex
 
 standalone/figure_hp.pdf: standalone/figure_hp.tex standalone/preamble-figures.tex
