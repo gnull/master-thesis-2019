@@ -28,7 +28,7 @@
 
 \usepackage{tikz}
 
-\usepackage{tocbibind}
+\usepackage[nottoc]{tocbibind}
 
 \usepackage{geometry}
 
@@ -79,7 +79,7 @@
     pdftitle={Доказуемо надёжные в слабом смысле трудные биты}
 }
 
-\renewcommand{\baselinestretch}{1.4} % Полуторный межстрочный интервал
+\renewcommand{\baselinestretch}{1.6} % Полуторный межстрочный интервал
 \parindent 1.25cm % Абзацный отступ
 
 \setlist[enumerate,itemize]{leftmargin=12.7mm}
@@ -89,3 +89,8 @@
 \captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
 \captionsetup[table]{justification=justified, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
 \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
+
+\usepackage[uppercase,center]{titlesec}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{1cm}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0.5cm}
