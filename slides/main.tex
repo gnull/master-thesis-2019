@@ -1,4 +1,5 @@
 \documentclass[mathserif,serif]{beamer} % Add handout here to disable animations
+\usetheme{Boadilla}
 
 \usepackage{fontspec} % loaded by polyglossia, but included here for transparency
 \usepackage{polyglossia}
@@ -37,8 +38,8 @@
 
 \title{Доказуемо надёжные в слабом смысле трудные биты}
 \subtitle{Магистерская диссертация}
-\author{Выполнил: Олейников Иван Викторович \\ Научный руководитель: Гирш Эдуард Алексеевич}
-\date{Санкт-Петербург, 2019}
+\author{Олейников Иван Викторович}
+\date{11 июня 2019}
 \subject{Computer Science}
 
 \begin{document}
@@ -203,14 +204,17 @@ C_{7/8}(h_n \circ f_{n, s}^{-1}) \geq 3n - \ceil{n / s} - 5.
 
 \begin{frame}
   \frametitle{Заключение}
-  \begin{construction}[$s = 2$.]
-  Получается трудный бит порядка $(3 - 1/2) / 2 = (1 + 1/4)$ с вероятностью $7/8$.
-  \[
-  C_{7/8}(g_{n, s}) \geq (3 - \frac 1 2)n - 6.
-  \]
-  При этом обратить $f_{n, s}$ в $3/2$ раз труднее, чем вычислить.
-  \end{construction}
-  \pause
+  {
+    \centering
+    \includegraphics[width=0.5\textwidth]{../standalone/figure_hp}
+    \[
+    \begin{aligned}
+    f : \{0, 1\}^n \to \{0, 1\}^n
+    & \quad &
+    h : \{0, 1\}^n \to \{0, 1\}
+    \end{aligned}
+    \]
+  }
   \begin{construction}[$s = \sqrt{n}$.]
   Получается трудный бит порядка $1 + 1/2$ с вероятностью $7/8$.
   \[
