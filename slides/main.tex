@@ -124,7 +124,10 @@
   Предикат $h$ является трудным битом для перестановки $f$ порядка $k$ с
   вероятностью $\alpha$, если
   \[
-  \lim_{l \to \infty} \sup_{n > l} \frac {C_\alpha(h_n \circ f_n^{-1})} {\max \{ C(h_n), C(f_n) \}} = k.
+  \lim_{l \to \infty} \sup_{n > l} \frac {C_\alpha(h_n \circ f_n^{-1})} {\max \{ C(h_n), C(f_n) \}} = k, \quad
+  \parbox{5cm}{ \footnotesize
+     где $C_\alpha(\cdot)$ "--- схемная сложность вычисления функции на $> \alpha$ доле входов, а $C(\cdot)$ "--- на всех входах.
+  }
   \]
   \end{defn}
 \end{frame}
