@@ -1,0 +1,201 @@
+\documentclass[mathserif,serif]{beamer} % Add handout here to disable animations
+\usetheme{Boadilla}
+
+\usepackage{fontspec} % loaded by polyglossia, but included here for transparency
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{FreeMono}
+
+\usepackage{savesym}
+\savesymbol{C}
+\savesymbol{G}
+\usepackage{complexity}
+\restoresymbol{TXF}{C}
+\restoresymbol{TXF}{G}
+
+\usepackage{amssymb,amsthm,amsmath,mathtools,thmtools,thm-restate}
+
+\newtheorem{thm}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{construction}{Contruction}
+
+\newcommand\F{\ensuremath{{\mathbb F}_2}}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+
+\title{Feebly secure hard-core predicates}
+\subtitle{(Master thesis)}
+\author{Ivan Oleynikov\thanks{St. Petersburg Academic University} \and Advisor: Edward A. Hirsch\thanks{St. Petersburg Steklov Mathematical Institute}}
+\date{\today}
+\subject{Computer Science}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{Motivation for feebly secure contructions}
+  We have (almost) no provably secure cryptographic contructions.
+  \begin{itemize}
+  \item Finding such constructions is hard, since it would imply $\P \neq \NP$.
+  \item Typically, for a contruction to be secure we require that the tasks of
+  honest parties can be solved in polynomial time, but the tasks of an adversary
+  (i.e. breaking the construction) can't.
+  \end{itemize}
+  \pause
+  Maybe we could weaken the security requirements to obtain something we can
+  prove?
+  \begin{itemize}
+  \item Feeble security of order $k$ requires adversary to perform at least $k$
+  times more operations than honest parties do.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Existing constructions}
+  Existing feebly secure constructions:
+  \begin{itemize}
+  \item One-way functions --- Hiltgen in 1993.
+  \item Trapdoor functions --- Hirsch, Nikolenko, Melanich, Davydow in 2009-2012.
+  \end{itemize}
+  \pause
+  In this work we construct:
+  \begin{itemize}
+  \item A feebly secure hard-core predicate for a function.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hard-core predicate of a function}
+  {
+    \centering
+    \includegraphics[width=0.5\textwidth]{../standalone/figure_hp}
+    \[
+    \begin{aligned}
+    f : \{0, 1\}^n \to \{0, 1\}^n
+    & \quad &
+    h : \{0, 1\}^n \to \{0, 1\}
+    \pause
+    \end{aligned}
+    \]
+  }
+  \begin{defn}
+  Predicate $h$ is a hard-core predicate for permutation $f$ of order $k$
+  with probability $\alpha$, iff
+  \[
+  \lim_{l \to \infty} \sup_{n > l} \frac {C_\alpha(h_n \circ f_n^{-1})} {\max \{ C(h_n), C(f_n) \}} = k, \quad
+  \parbox{5cm}{ \footnotesize
+     where $C_\alpha(\cdot)$ is the circuit complexity of computing a function
+     on $> \alpha$ fraction of inputs, and $C(\cdot)$ --- for computing it on
+     all inputs.
+  }
+  \]
+  \end{defn}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overview of the Contruction}
+  Hiltgen has presented a linear permutation $\lambda_{n, s} : \F^n \to \F^n$ and
+  found the exact values of the complexities $C(\lambda_{n, s})$ и $C(\lambda_{n,
+  s}^{-1})$.
+  \[
+  \lambda_{n, s}(y) = \Lambda_{n, s} y
+  \]
+  \pause
+  Define
+  \[
+  f_{n, s}(x, y) = (x, \lambda_{n, s}(y)) = (x, \Lambda_{n, s} y).
+  \]
+  \pause
+  We prove that the inner (scalar) product
+  \[
+  h_n (x, y) = x^\top y
+  \]
+  is a hard-core predicate for permutation $f_{n ,s}$
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview of the Proof}
+\fbox{
+  \begin{minipage}{\textwidth}
+    Reminder from the previous slide:
+    \[
+    \begin{aligned}
+    f_{n, s}(x, y) &= (x, \lambda_{n, s}(y)) = (x, \Lambda_{n, s} y) \\
+    h_n (x, y) &= x^\top y. \\
+    \end{aligned}
+    \]
+  \end{minipage}
+}
+\pause
+\\[1em]
+To obtain a lower bound on
+\[
+  \lim_{l \to \infty} \sup_{n > l} \frac {C_\alpha(h_n \circ f_n^{-1})} {\max \{ C(h_n), C(f_n) \}},
+\]
+we need the following bounds:
+\begin{tabular}{l | l}
+upper bound on $C(h_n)$                      & \onslide<3->{trivially $C(h_n) = 2n - 1$} \\
+upper bound on $C(f_{n, s})$                 & \onslide<4->{trivially $C(f_{n, s}) = C(\lambda_{n, s})$} \\
+lower bound on $C_\alpha(h_n \circ f_{n, s}^{-1})$ & \onslide<5->{proven in this work.} \\
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{The lower bound}
+\fbox{
+  \begin{minipage}{\textwidth}
+    Reminder from the previous slide:
+    \[
+    \begin{aligned}
+    f_{n, s}(x, y) &= (x, \lambda_{n, s}(y)) = (x, \Lambda_{n, s} y) \\
+    h_n (x, y) &= x^\top y. \\
+    \end{aligned}
+    \]
+  \end{minipage}
+}
+\pause
+\\[1em]
+Function $h_n \circ f_{n, s}^{-1}$ is a bilinear form:
+\[
+(h_n \circ f_{n, s}^{-1})(x, y) = h_n(x, \Lambda_{n, s}^{-1}y) = x^\top \Lambda_{n, s}^{-1} y.
+\]
+\pause
+\begin{thm}
+\[
+C_{7/8}(h_n \circ f_{n, s}^{-1}) \geq 3n - \ceil{n / s} - 5.
+\]
+\end{thm}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusion}
+  {
+    \centering
+    \includegraphics[width=0.5\textwidth]{../standalone/figure_hp}
+    \[
+    \begin{aligned}
+    f : \{0, 1\}^n \to \{0, 1\}^n
+    & \quad &
+    h : \{0, 1\}^n \to \{0, 1\}
+    \end{aligned}
+    \]
+  }
+  \begin{construction}[$s = \sqrt{n}$.]
+  Predicate $h_n$ is a hard-core predicate for permutation $f_{n, s}$ of order
+  $3/2 = 1 + 1/2$ with probability $7/8$.
+  \[
+  \begin{aligned}
+  C(h_n) &= 2n - 1 & C_{7/8}(g_{n, s}) &\geq 3n - \sqrt{n} - 6 \\
+  C(f_n) &= n + \sqrt{n} - 1 \\
+  \end{aligned}
+  \]
+  \end{construction}
+\end{frame}
+
+\end{document}
